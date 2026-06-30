@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noodle Fusion 美味閣 — Markham, ON</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --green: #1B5E38;
+    --green-mid: #2D7A52;
+    --green-light: #EBF4EF;
+    --gold: #C8993A;
+    --cream: #FDFCF8;
+    --charcoal: #1C1C1C;
+    --muted: #6B7166;
+    --white: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Serif TC', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── LANG TOGGLE ─── */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 28px;
+  }
+  .lang-btn {
+    background: none;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.75);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    letter-spacing: 0.03em;
+  }
+  .lang-btn.active {
+    background: rgba(255,255,255,0.18);
+    color: white;
+    border-color: white;
+  }
+  .lang-btn:hover { color: white; border-color: rgba(255,255,255,0.7); }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--green);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .header-logo img {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .header-logo span {
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 28px;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: white; }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--green);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(200,153,58,0.12) 0%, transparent 65%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .steam-wrap {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .steam {
+    position: absolute;
+    bottom: 55%;
+    width: 3px;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.08);
+    animation: rise 4s ease-in infinite;
+  }
+  .steam:nth-child(1) { left: 43%; height: 80px; animation-delay: 0s; }
+  .steam:nth-child(2) { left: 49%; height: 60px; animation-delay: 1.3s; }
+  .steam:nth-child(3) { left: 55%; height: 70px; animation-delay: 0.7s; }
+
+  @keyframes rise {
+    0%   { transform: translateY(0)   scaleX(1);   opacity: 0; }
+    20%  { opacity: 1; }
+    100% { transform: translateY(-90px) scaleX(1.4); opacity: 0; }
+  }
+
+  .hero-logo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    margin-bottom: 28px;
+    animation: floatLogo 6s ease-in-out infinite;
+  }
+  @keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  .hero-eyebrow {
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    color: white;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .hero-chinese {
+    font-family: 'Noto Serif TC', serif;
+    color: rgba(255,255,255,0.55);
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 24px;
+  }
+
+  .hero-tagline {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    font-weight: 300;
+    max-width: 460px;
+    line-height: 1.65;
+    margin: 0 auto 36px;
+  }
+
+  .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+  .btn-primary { background: var(--gold); color: white; }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.45);
+  }
+  .btn-outline:hover { border-color: white; }
+
+  /* ─── WAVE ─── */
+  .wave {
+    display: block;
+    width: 100%;
+    height: 64px;
+    margin-bottom: -2px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 72px 24px; }
+  .container { max-width: 1040px; margin: 0 auto; }
+
+  .section-label {
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-visual {
+    background: var(--green);
+    border-radius: 8px;
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(27,94,56,0.25);
+  }
+
+  .about-visual img { width: 55%; opacity: 0.95; }
+
+  /* ─── HIGHLIGHTS ─── */
+  .highlights-bg { background: var(--green-light); }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 6px;
+    padding: 32px 28px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    border-top: 3px solid var(--green);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+
+  .card-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+
+  .card h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.1rem;
+    color: var(--green);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+  /* ─── VISIT ─── */
+  .visit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .info-block { margin-bottom: 36px; }
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 8px;
+  }
+  .info-value { font-size: 1rem; color: var(--charcoal); line-height: 1.7; }
+  .info-value a { color: var(--green); text-decoration: none; font-weight: 500; }
+  .info-value a:hover { text-decoration: underline; }
+
+  .map-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    aspect-ratio: 4/3;
+    background: #dde8e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .map-placeholder { text-align: center; color: var(--green); }
+  .map-placeholder .pin { font-size: 2.5rem; margin-bottom: 10px; }
+  .map-placeholder p { font-size: 0.9rem; color: var(--muted); }
+  .map-placeholder a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 22px;
+    background: var(--green);
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--green);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 0.88rem;
+  }
+  footer .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  footer .footer-logo img {
+    height: 36px; width: 36px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.25);
+  }
+  footer .footer-logo span {
+    color: white;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  footer .social a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  footer .social a:hover { color: white; }
+  footer .copy { margin-top: 16px; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    header { padding: 0 16px; }
+    nav { display: none; }
+    .lang-toggle { margin-left: 12px; }
+    .about-grid, .visit-grid { grid-template-columns: 1fr; gap: 32px; }
+    .highlights-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── LANG VISIBILITY ─── */
+  [data-lang] { display: none; }
+  body.lang-en  [data-lang="en"]  { display: revert; }
+  body.lang-zh  [data-lang="zh"]  { display: revert; }
+  /* inline elements need inline not revert */
+  span[data-lang], a[data-lang] { display: none; }
+  body.lang-en  span[data-lang="en"],
+  body.lang-en  a[data-lang="en"]  { display: inline; }
+  body.lang-zh  span[data-lang="zh"],
+  body.lang-zh  a[data-lang="zh"]  { display: inline; }
+</style>
+</head>
+<body class="lang-en">
+
+<!-- HEADER -->
+<header>
+  <a class="header-logo" href="#">
+    <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion Logo">
+    <span>Noodle Fusion 美味閣</span>
+  </a>
+  <div class="header-right">
+    <nav>
+      <a href="#about" data-lang="en">About</a>
+      <a href="#about" data-lang="zh">關於我們</a>
+      <a href="#highlights" data-lang="en">Menu</a>
+      <a href="#highlights" data-lang="zh">菜單特色</a>
+      <a href="#visit" data-lang="en">Visit Us</a>
+      <a href="#visit" data-lang="zh">找到我們</a>
+      <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="en">Order Online</a>
+      <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="zh">網上落單</a>
+    </nav>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="steam-wrap">
+    <div class="steam"></div>
+    <div class="steam"></div>
+    <div class="steam"></div>
+  </div>
+  <div>
+    <div class="hero-eyebrow" data-lang="en">Markham, Ontario · Canada</div>
+    <div class="hero-eyebrow" data-lang="zh">加拿大 · 安大略省萬錦市</div>
+    <img class="hero-logo" src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+    <h1>Noodle Fusion</h1>
+    <div class="hero-chinese">美 味 閣</div>
+    <p class="hero-tagline" data-lang="en">Handcrafted rice noodles and bold Asian flavours, made with heart in every bowl.</p>
+    <p class="hero-tagline" data-lang="zh">精心製作的米線與濃郁亞洲風味，每一碗都充滿用心與誠意。</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="en">Order on Uber Eats</a>
+      <a class="btn btn-primary" href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="zh">Uber Eats 落單</a>
+      <a class="btn btn-outline" href="#visit" data-lang="en">Find Us</a>
+      <a class="btn btn-outline" href="#visit" data-lang="zh">門店位置</a>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE -->
+<svg class="wave" viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#1B5E38"/>
+</svg>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label" data-lang="en">Who We Are</div>
+        <div class="section-label" data-lang="zh">關於美味閣</div>
+        <h2 class="section-title" data-lang="en">A Home for Noodle Lovers</h2>
+        <h2 class="section-title" data-lang="zh">米線愛好者的家</h2>
+        <p class="section-body" data-lang="en">
+          Noodle Fusion 美味閣 — meaning "House of Delicious Flavour" — brings the soul of Asian noodle culture to Markham. We slow-cook our broths, hand-select our ingredients, and craft every bowl as if it were for family. Whether it's our signature rice noodles (米線) in a clear, savoury broth or a richer fusion creation, each dish is a labour of love made fresh to order.
+        </p>
+        <p class="section-body" data-lang="zh">
+          美味閣，顧名思義是「美食薈萃之閣」，將亞洲麵食文化的精髓帶到萬錦市。我們慢火熬製湯底，嚴選食材，每一碗都如同為家人精心烹調。無論是清澈鮮美的招牌米線，還是風味濃郁的創意融合料理，每道菜都是現點現做的心意之作。
+        </p>
+        <p class="section-body" style="margin-top:16px;" data-lang="en">
+          Find us inside the food court at 9390 Woodbine Avenue, where a warm bowl is always waiting.
+        </p>
+        <p class="section-body" style="margin-top:16px;" data-lang="zh">
+          我們位於 9390 Woodbine Avenue 美食廣場內，一碗熱騰騰的米線隨時等候您的到來。
+        </p>
+      </div>
+      <div class="about-visual">
+        <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights" class="highlights-bg">
+  <div class="container">
+    <div class="section-label" data-lang="en">What We Offer</div>
+    <div class="section-label" data-lang="zh">我們的特色</div>
+    <h2 class="section-title" data-lang="en">Made With Intention</h2>
+    <h2 class="section-title" data-lang="zh">用心製作，每碗皆精品</h2>
+    <div class="highlights-grid">
+      <div class="card">
+        <span class="card-icon">🍜</span>
+        <h3 data-lang="en">Rice Noodles 米線</h3>
+        <h3 data-lang="zh">招牌米線</h3>
+        <p data-lang="en">Our signature 米線 are silky, chewy, and served in broths simmered for hours. Choose your toppings for a bowl that's entirely your own.</p>
+        <p data-lang="zh">我們的招牌米線嫩滑爽口，搭配慢火熬製數小時的湯底，自選配料，打造屬於您的獨特一碗。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🥢</span>
+        <h3 data-lang="en">Asian Fusion</h3>
+        <h3 data-lang="zh">亞洲融合料理</h3>
+        <p data-lang="en">We draw inspiration from across Asia — bold spices, clean umami, and comforting textures — blended into dishes that feel both familiar and fresh.</p>
+        <p data-lang="zh">我們的靈感來自亞洲各地，融合濃烈香料、鮮純鮮味與豐富口感，呈現既親切又充滿驚喜的創意料理。</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛵</span>
+        <h3 data-lang="en">Delivery via Uber Eats</h3>
+        <h3 data-lang="zh">Uber Eats 外賣送餐</h3>
+        <p data-lang="en">Can't make it in? Order online through Uber Eats and enjoy Noodle Fusion's flavours delivered warm to your door.</p>
+        <p data-lang="zh">無法親臨？透過 Uber Eats 網上落單，將美味閣的味道熱騰騰地送到您家門口。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section id="visit">
+  <div class="container">
+    <div class="section-label" data-lang="en">Come See Us</div>
+    <div class="section-label" data-lang="zh">歡迎蒞臨</div>
+    <h2 class="section-title" data-lang="en">Visit Noodle Fusion</h2>
+    <h2 class="section-title" data-lang="zh">美味閣 · 門店資訊</h2>
+    <div class="visit-grid">
+      <div>
+        <div class="info-block">
+          <div class="info-label" data-lang="en">Address</div>
+          <div class="info-label" data-lang="zh">地址</div>
+          <div class="info-value">
+            9390 Woodbine Avenue<br>
+            <span data-lang="en">Markham, ON, Canada</span>
+            <span data-lang="zh">萬錦市，安大略省，加拿大</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label" data-lang="en">Order Online</div>
+          <div class="info-label" data-lang="zh">網上落單</div>
+          <div class="info-value">
+            <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="en">Uber Eats — Noodle Fusion 美味閣</a>
+            <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="zh">Uber Eats — 美味閣外賣</a>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label" data-lang="en">Follow Us</div>
+          <div class="info-label" data-lang="zh">社交媒體</div>
+          <div class="info-value">
+            <a href="https://www.instagram.com/noodle._.fusion/" target="_blank">@noodle._.fusion</a>
+            <span data-lang="en"> on Instagram</span>
+            <span data-lang="zh">（Instagram）</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label" data-lang="en">Website</div>
+          <div class="info-label" data-lang="zh">官方網站</div>
+          <div class="info-value">
+            <a href="https://noodlefusion.ca" target="_blank">noodlefusion.ca</a>
+          </div>
+        </div>
+      </div>
+      <div class="map-embed">
+        <div class="map-placeholder">
+          <div class="pin">📍</div>
+          <p>9390 Woodbine Avenue<br>Markham, ON</p>
+          <a href="https://maps.app.goo.gl/faJhufGMnrjdouGC9" target="_blank" data-lang="en">Open in Google Maps</a>
+          <a href="https://maps.app.goo.gl/faJhufGMnrjdouGC9" target="_blank" data-lang="zh">在 Google 地圖中開啟</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+    <span>Noodle Fusion 美味閣</span>
+  </div>
+  <div class="social">
+    <a href="https://www.instagram.com/noodle._.fusion/" target="_blank">Instagram</a>
+    <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank">Uber Eats</a>
+    <a href="https://maps.app.goo.gl/faJhufGMnrjdouGC9" target="_blank">Google Maps</a>
+  </div>
+  <div class="copy">© 2026 Noodle Fusion 美味閣 · Markham, Ontario · noodlefusion.ca</div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang || (lang === 'zh' && btn.textContent.trim() === '中文'));
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+  }
+</script>
+
+</body>
+</html>
