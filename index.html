@@ -313,6 +313,17 @@
 
   .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
+  .card-featured { padding: 0; overflow: hidden; }
+  .card-featured h3 { padding: 0 24px; margin-top: 20px; margin-bottom: 10px; }
+  .card-featured p  { padding: 0 24px 24px; }
+  .card-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
   /* ─── VISIT ─── */
   .visit-grid {
     display: grid;
@@ -422,7 +433,7 @@
 <!-- HEADER -->
 <header>
   <a class="header-logo" href="#">
-    <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion Logo">
+    <img src="NoodleFusionLogo.png" alt="Noodle Fusion Logo">
     <span>Noodle Fusion 美味閣</span>
   </a>
   <div class="header-right">
@@ -453,7 +464,7 @@
   <div>
     <div class="hero-eyebrow" data-lang="en">Markham, Ontario · Canada</div>
     <div class="hero-eyebrow" data-lang="zh">加拿大 · 安大略省萬錦市</div>
-    <img class="hero-logo" src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+    <img class="hero-logo" src="NoodleFusionLogo.png" alt="Noodle Fusion">
     <h1>Noodle Fusion</h1>
     <div class="hero-chinese">美 味 閣</div>
     <p class="hero-tagline" data-lang="en">Handcrafted rice noodles and bold Asian flavours, made with heart in every bowl.</p>
@@ -495,7 +506,7 @@
         </p>
       </div>
       <div class="about-visual">
-        <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+        <img src="NoodleFusionLogo.png" alt="Noodle Fusion">
       </div>
     </div>
   </div>
@@ -509,26 +520,26 @@
     <h2 class="section-title" data-lang="en">Made With Intention</h2>
     <h2 class="section-title" data-lang="zh">用心製作，每碗皆精品</h2>
     <div class="highlights-grid">
-      <div class="card">
-        <span class="card-icon">🍜</span>
-        <h3 data-lang="en">Rice Noodles 米線</h3>
+      <div class="card card-featured">
+        <img src="signature-bowl.png" alt="Signature Rice Noodle Bowl" class="card-photo">
+        <h3 data-lang="en">Signature Rice Noodles</h3>
         <h3 data-lang="zh">招牌米線</h3>
-        <p data-lang="en">Our signature 米線 are silky, chewy, and served in broths simmered for hours. Choose your toppings for a bowl that's entirely your own.</p>
-        <p data-lang="zh">我們的招牌米線嫩滑爽口，搭配慢火熬製數小時的湯底，自選配料，打造屬於您的獨特一碗。</p>
+        <p data-lang="en">Our signature Rice Noodle comes with pork liver, chicken, fried sauce, fish balls, tofu puffs, and bean sprouts — a hearty bowl made fresh to order.</p>
+        <p data-lang="zh">招牌米線配料豐富：豬潤、雞肉、炸醬、魚蛋、豆泡及芽菜，湯底清鮮，現點現做，一碗盡享滿足。</p>
       </div>
-      <div class="card">
-        <span class="card-icon">🥢</span>
-        <h3 data-lang="en">Asian Fusion</h3>
-        <h3 data-lang="zh">亞洲融合料理</h3>
-        <p data-lang="en">We draw inspiration from across Asia — bold spices, clean umami, and comforting textures — blended into dishes that feel both familiar and fresh.</p>
-        <p data-lang="zh">我們的靈感來自亞洲各地，融合濃烈香料、鮮純鮮味與豐富口感，呈現既親切又充滿驚喜的創意料理。</p>
+      <div class="card card-featured">
+        <img src="two-topping-bowl.png" alt="Two Topping Rice Noodle Bowl" class="card-photo">
+        <h3 data-lang="en">Two Topping Rice Noodles</h3>
+        <h3 data-lang="zh">雙拼米線</h3>
+        <p data-lang="en">Our two topping Rice Noodle comes with your choice of chicken, Angus beef, pork liver, fried sauce, fish balls, or fish slice — mix and match for the perfect bowl.</p>
+        <p data-lang="zh">雙拼米線可從雞肉、安格斯牛肉、豬潤、炸醬、魚蛋或魚片中任選兩款配料，自由搭配，打造專屬美味。</p>
       </div>
-      <div class="card">
-        <span class="card-icon">🛵</span>
-        <h3 data-lang="en">Delivery via Uber Eats</h3>
-        <h3 data-lang="zh">Uber Eats 外賣送餐</h3>
-        <p data-lang="en">Can't make it in? Order online through Uber Eats and enjoy Noodle Fusion's flavours delivered warm to your door.</p>
-        <p data-lang="zh">無法親臨？透過 Uber Eats 網上落單，將美味閣的味道熱騰騰地送到您家門口。</p>
+      <div class="card card-featured">
+        <img src="single-topping-bowl.png" alt="Single Topping Rice Noodle Bowl" class="card-photo">
+        <h3 data-lang="en">Single Topping Rice Noodles</h3>
+        <h3 data-lang="zh">單拼米線</h3>
+        <p data-lang="en">Our single topping Rice Noodle lets you choose one from: chicken, Angus beef, pork liver, fried sauce, fish balls, or fish slice — simple, satisfying, and made fresh.</p>
+        <p data-lang="zh">單拼米線可從雞肉、安格斯牛肉、豬潤、炸醬、魚蛋或魚片中任選一款，簡單美味，現點現做。</p>
       </div>
     </div>
   </div>
@@ -592,7 +603,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="NoodleFusionLogo copy.png" alt="Noodle Fusion">
+    <img src="NoodleFusionLogo.png" alt="Noodle Fusion">
     <span>Noodle Fusion 美味閣</span>
   </div>
   <div class="social">
