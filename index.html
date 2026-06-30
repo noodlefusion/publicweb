@@ -315,7 +315,21 @@
 
   .card-featured { padding: 0; overflow: hidden; }
   .card-featured h3 { padding: 0 24px; margin-top: 20px; margin-bottom: 10px; }
-  .card-featured p  { padding: 0 24px 24px; }
+  .card-featured p  { padding: 0 24px 16px; }
+  .card-order { padding: 0 24px 24px; }
+  .btn-order {
+    display: inline-block;
+    padding: 9px 24px;
+    background: var(--green);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.18s, transform 0.15s;
+  }
+  .btn-order:hover { background: var(--green-mid); transform: translateY(-1px); }
   .card-photo {
     width: 100%;
     aspect-ratio: 1/1;
@@ -442,6 +456,8 @@
       <a href="#about" data-lang="zh">關於我們</a>
       <a href="#highlights" data-lang="en">Menu</a>
       <a href="#highlights" data-lang="zh">菜單特色</a>
+      <a href="#meats" data-lang="en">Meats</a>
+      <a href="#meats" data-lang="zh">扒類肉品</a>
       <a href="#visit" data-lang="en">Visit Us</a>
       <a href="#visit" data-lang="zh">找到我們</a>
       <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="en">Order Online</a>
@@ -545,8 +561,86 @@
   </div>
 </section>
 
+<!-- MEATS -->
+<section id="meats">
+  <div class="container">
+    <div class="section-label" data-lang="en">Premium Meats</div>
+    <div class="section-label" data-lang="zh">優質肉類</div>
+    <h2 class="section-title" data-lang="en">Steaks &amp; Premium Cuts</h2>
+    <h2 class="section-title" data-lang="zh">扒類與精選肉品</h2>
+    <div class="highlights-grid">
+      <div class="card card-featured">
+        <img src="ribeye.png" alt="Rib Eye Steak" class="card-photo">
+        <h3 data-lang="en">Rib Eye Steak</h3>
+        <h3 data-lang="zh">肉眼扒</h3>
+        <p data-lang="en">A well-marbled, flavour-rich cut with a tender texture and juicy finish — one of the most beloved steaks for good reason.</p>
+        <p data-lang="zh">油花分佈均勻，肉質鮮嫩多汁，風味濃郁，是備受喜愛的經典扒類之選。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+      <div class="card card-featured">
+        <img src="tenderloin.png" alt="Tenderloin Steak" class="card-photo">
+        <h3 data-lang="en">Tenderloin Steak</h3>
+        <h3 data-lang="zh">柳扒</h3>
+        <p data-lang="en">The most tender cut on the animal — lean, buttery, and refined. A premium choice for those who appreciate understated elegance in every bite.</p>
+        <p data-lang="zh">取自最嫩部位，肉質細緻柔滑，低脂精瘦，每一口都散發細膩醇厚的牛肉香氣。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+      <div class="card card-featured">
+        <img src="hotpot-beef.png" alt="Hotpot Beef Slice" class="card-photo">
+        <h3 data-lang="en">Hotpot Beef Slice</h3>
+        <h3 data-lang="zh">火鍋牛肉片</h3>
+        <p data-lang="en">Thinly sliced Angus beef, perfect for hotpot or noodle broth. Cooks in seconds and delivers a clean, beefy flavour with every spoonful.</p>
+        <p data-lang="zh">採用安格斯牛肉薄切，適合火鍋或米線湯底，入鍋即熟，牛味鮮甜清爽，每口皆令人回味。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+      <div class="card card-featured">
+        <img src="sirloin.png" alt="Sirloin Steak" class="card-photo">
+        <h3 data-lang="en">Sirloin Steak</h3>
+        <h3 data-lang="zh">西冷扒</h3>
+        <p data-lang="en">A classic cut with a firm texture and bold beefy flavour. Sirloin strikes the perfect balance between tenderness and depth of taste.</p>
+        <p data-lang="zh">口感紮實，牛肉風味濃郁，西冷扒在嫩滑與鮮香之間取得完美平衡，是扒類愛好者的經典首選。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+      <div class="card card-featured">
+        <img src="brisket.png" alt="Brisket" class="card-photo">
+        <h3 data-lang="en">Brisket</h3>
+        <h3 data-lang="zh">牛腩</h3>
+        <p data-lang="en">Slow-cooked to melt-in-your-mouth tenderness, our brisket is rich, gelatinous, and deeply satisfying — a true comfort cut.</p>
+        <p data-lang="zh">慢火燉煮至入口即化，牛腩肉質軟糯，膠質豐富，湯汁濃郁，是最令人滿足的暖心之選。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+      <div class="card card-featured">
+        <img src="beef-slice.png" alt="Beef Slice" class="card-photo">
+        <h3 data-lang="en">Beef Slice</h3>
+        <h3 data-lang="zh">牛肉片</h3>
+        <p data-lang="en">Premium thinly sliced beef, ideal for adding to noodle soups or hotpot. Quick to cook and full of clean, natural beef flavour.</p>
+        <p data-lang="zh">精選優質牛肉薄切，適合加入米線湯或火鍋，入鍋即熟，牛味清甜自然，百吃不厭。</p>
+        <div class="card-order">
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="en">Order</a>
+          <a href="http://www.apple.com" target="_blank" class="btn-order" data-lang="zh">立即落單</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- VISIT -->
-<section id="visit">
+<section id="visit" class="highlights-bg">
   <div class="container">
     <div class="section-label" data-lang="en">Come See Us</div>
     <div class="section-label" data-lang="zh">歡迎蒞臨</div>
@@ -561,6 +655,13 @@
             9390 Woodbine Avenue<br>
             <span data-lang="en">Markham, ON, Canada</span>
             <span data-lang="zh">萬錦市，安大略省，加拿大</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <div class="info-label" data-lang="en">Phone</div>
+          <div class="info-label" data-lang="zh">電話</div>
+          <div class="info-value">
+            <a href="tel:+12263868088">(226) 386-8088</a>
           </div>
         </div>
         <div class="info-block">
