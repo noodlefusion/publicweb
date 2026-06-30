@@ -417,7 +417,7 @@
   body.lang-zh  a[data-lang="zh"]  { display: inline; }
 </style>
 </head>
-<body class="lang-en">
+<body class="lang-zh">
 
 <!-- HEADER -->
 <header>
@@ -437,8 +437,8 @@
       <a href="https://www.ubereats.com/ca/store/noodle-fusion-%E7%BE%8E%E5%91%B3%E9%96%A3-9390-woodbine-avenue/XA7-R5e7Xhicm6xMuHHgcQ" target="_blank" data-lang="zh">網上落單</a>
     </nav>
     <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn active" onclick="setLang('zh')">中文</button>
     </div>
   </div>
 </header>
@@ -607,7 +607,7 @@
   function setLang(lang) {
     document.body.className = 'lang-' + lang;
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang || (lang === 'zh' && btn.textContent.trim() === '中文'));
+      btn.classList.toggle('active', (lang === 'en' && btn.textContent.trim() === 'EN') || (lang === 'zh' && btn.textContent.trim() === '中文'));
     });
     document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
   }
